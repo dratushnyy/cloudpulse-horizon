@@ -1,0 +1,29 @@
+{% load i18n  %}
+
+<div class="detail">
+  <dl class="dl-horizontal">
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ result.id }}</dd>
+    <dt>{% trans "UUID" %}</dt>
+    <dd>{{ result.uuid }}</dd>
+    <dt>{% trans "Test name" %}</dt>
+    <dd>{{ result.name }}</dd>
+    <dt>{% trans "Test type" %}</dt>
+    <dd>{{ result.testtype }}</dd>
+    <dt>{% trans "State" %}</dt>
+    {% if result.state == "failed" %}
+    <dd style="color: red">{{ result.state }}</dd>
+    <dt>{% trans "Result" %}</dt>
+    <dd style="color: red">{{ result.result }}</dd>
+    {% else %}
+    <dd>{{ result.state }}</dd>
+    <dt>{% trans "Result" %}</dt>
+    <dd>{{ result.result }}</dd>
+    {% endif %}
+      <dt>{% trans "Created" %}</dt>
+    <dd>{{ result.created_at }}</dd>
+    <dt>{% trans "Updated" %}</dt>
+    <dd>{{ result.updated_at }}</dd>
+  </dl>
+</div>
+

@@ -1,0 +1,3 @@
+include setup.py
+
+recursive-include cloudpulse_horizon *.js *.html *.scss
