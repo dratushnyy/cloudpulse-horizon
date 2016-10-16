@@ -14,5 +14,21 @@
    </div>
 </div>
 {% endblock %}
+{% block js %}
+  {% include "horizon/_scripts.html" %}
+  <script type="text/javascript">
+    $(document).ready(function () {
+       $("#test_results tr").each(function () {
+          if($(this).hasClass("even")){
+           $(this).removeClass("even");
+          }
+          if($(this).hasClass("odd")){
+           $(this).removeClass("odd");
+          }
+       });
+    });
+  </script>
+{% endblock %}
+
 
 
