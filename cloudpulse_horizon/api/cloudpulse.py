@@ -15,8 +15,6 @@
 from cloudpulseclient.v1 import client
 from django.conf import settings
 
-from horizon.utils.memoized import memoized_with_request
-
 
 class CloudPulseTest(object):
     def __init__(self, name, scenario):
@@ -56,10 +54,9 @@ def get_auth_params_from_request(request):
     )
 
 
-@memoized_with_request(get_auth_params_from_request)
 def _cloudpulse_client(request):
     username, project_name, token_id, tenant_id, auth_url, service_type \
-        = request
+        = get_auth_params_from_request(request)
     return client.Client(username=username, project_id=tenant_id,
                          project_name=project_name, input_auth_token=token_id,
                          auth_url=auth_url, service_type=service_type)
